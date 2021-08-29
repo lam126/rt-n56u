@@ -27,8 +27,6 @@ build_extract:
 	fi )
 
 build_v2ray:
-	cd /opt/rt-n56u/trunk/user/v2ray/v2ray.com/core
-	go mod download
 	( cd $(THISDIR)/v2ray.com/core/main; \
 	sed -i \
 			'$(V2RAY_SED_ARGS)' \
