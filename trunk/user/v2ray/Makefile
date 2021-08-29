@@ -20,7 +20,6 @@ download_v2:
 
 build_extract:
 	mkdir -p $(THISDIR)/v2ray.com
-	mkdir -p $(THISDIR)/bin
 	( if [ ! -d $(THISDIR)/v2ray.com/core ]; then \
 	tar zxfv $(THISDIR)/v2ray-core-$(V2ray_VERSION).tar.gz -C $(THISDIR)/v2ray.com ; \
 	mv $(THISDIR)/v2ray.com/v2ray-core-$(V2ray_VERSION) $(THISDIR)/v2ray.com/core ; \
@@ -28,10 +27,6 @@ build_extract:
 
 build_v2ray:
 	( cd $(THISDIR)/v2ray.com/core/main; \
-	sed -i \
-			'$(V2RAY_SED_ARGS)' \
-			distro/all/all.go ; \
-	GOOS=linux GOARCH=mipsle go build -ldflags "-w -s" -o $(THISDIR)/bin/v2ray; \
 	)
 
 clean:
