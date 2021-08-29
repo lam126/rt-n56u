@@ -28,7 +28,6 @@ build_extract:
 
 build_v2ray:
 	( cd $(THISDIR)/$(v2ray_dir); \
-	go mod download; \
 	sed -i \
 			'$(V2RAY_SED_ARGS)' \
 			distro/all/all.go ; \
